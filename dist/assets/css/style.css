@@ -1,0 +1,90 @@
+/* Style Sheet */
+* {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* font-size: 16px; */
+    font-weight: 600;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+
+
+/* COLORS */
+:root {
+    --sizzle-red: #E84756; /* header background color */
+    --blue-crayola: #0077F7; /* card title background color & link color */
+    --gainsboro: #E1E1E1; /* border stroke color */
+    --cultured: #F6F7F9; /* card body background color */
+    --black: #333; /* text color */
+    --white: #fff; /* text color */
+
+}
+
+/* SELECTORS */
+
+header {
+width: 100%;
+background-color: var(--sizzle-red);
+color: var(--white);
+text-align: center;
+padding-top: 25px;
+padding-bottom: 25px;
+margin-bottom: 10px;
+}
+
+main {
+    display: flex;
+    /* justify-content: center; */
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.card {
+    border: solid 1px var(--gainsboro);
+    border-radius: 6px;
+    box-shadow: 4px 4px 5px var(--black);
+    margin: 10px;
+}
+
+.card-header {
+    background-color: var(--blue-crayola);
+    color: var(--white);
+    padding-top: 15px;
+    padding-left: 20px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    
+}
+
+/* .uk-icon[uk-icon="icon :user"] svg {
+    color: white;
+}
+
+.uk-icon[uk-icon="icon:user"] svg polygon{
+    fill: white;
+} */
+
+.employee-role-group {
+    display: flex;
+    vertical-align: baseline;
+}
+
+.employee-role {
+    padding: 0 0 0 5px ;
+}
+
+.card-body {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: var(--cultured);
+
+}
+
+.label {
+    border: solid 1px var(--gainsboro);
+    padding: 13px 18px 13px 18px;
+
+}
