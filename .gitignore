@@ -1,5 +1,6 @@
 .DS_Store
 node_modules
-test
+tests
 package-lock.json
 package.json 
+src
