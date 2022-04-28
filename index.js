@@ -34,13 +34,13 @@ const newEmployee = () => {
         newManager();
         break;
       case "Engineer":
-        newEngineer;
+        newEngineer();
         break;
       case "Intern":
-        newIntern;
+        newIntern();
         break;
       case "Finnish":
-        buildTeam;
+        buildTeam();
       // could add a exit program here
       default:
         console.log("Sorry, no valid choice selected.");
@@ -50,7 +50,7 @@ const newEmployee = () => {
 
 // ADD ANOTHER TEAM MEMBER PROMPT
 const addTeamMemberPrompt = () => {
-  inquirer.prompt([
+  return inquirer.prompt([
     {
       type: "list",
       message: "Select team member role:",
@@ -62,7 +62,7 @@ const addTeamMemberPrompt = () => {
 
 // ADD MANAGER
 const newManager = () => {
-  managerPrompt().then(function (emdata) {
+  return managerPrompt().then(function (emdata) {
     let eManager = new Manager(
       emdata.name,
       emdata.id,
@@ -70,13 +70,13 @@ const newManager = () => {
       emdata.office
     );
     listOfEmployees.push(eManager);
+    newEmployee();
   });
-  newEmployee();
 };
 
 // ADD ENGINEER
 const newEngineer = () => {
-  engineerPrompt().then(function (eedata) {
+  return engineerPrompt().then(function (eedata) {
     let eEngineer = new Engineer(
       eedata.name,
       eedata.id,
@@ -84,13 +84,13 @@ const newEngineer = () => {
       eedata.githubusername
     );
     listOfEmployees.push(eEngineer);
+    newEmployee();
   });
-  newEmployee();
 };
 
 // ADD INTERN
 const newIntern = () => {
-  internPrompt().then(function (eidata) {
+  return internPrompt().then(function (eidata) {
     let eIntern = new Intern(
       eidata.name,
       eidata.id,
@@ -98,14 +98,15 @@ const newIntern = () => {
       eidata.school
     );
     listOfEmployees.push(eIntern);
+    newEmployee();
   });
-  newEmployee();
 };
 
 // BUILD MY TEAM
 const buildTeam = () => {
   let eList = "";
   listOfEmployees.forEach(function (edata) {
+    console.log(edata);
     if (edata.office) {
       eList += createManager(edata);
     } else if (edata.githubusername) {
@@ -124,7 +125,7 @@ const buildTeam = () => {
 
 // MANAGER PROMPT
 const managerPrompt = () => {
-  inquirer.prompt([
+  return inquirer.prompt([
     {
       type: "input",
       message: "Enter team manager name:",
@@ -146,17 +147,17 @@ const managerPrompt = () => {
       message: "Office number:",
       name: "office",
     },
-    {
-      type: "confirm",
-      message: "Add another team member?",
-      name: "newE",
-    },
+    // {
+    //   type: "confirm",
+    //   message: "Add another team member?",
+    //   name: "newE",
+    // },
   ]);
 };
 
 // ENGINEER PROMPT
 const engineerPrompt = () => {
-  inquirer.prompt([
+  return inquirer.prompt([
     {
       type: "input",
       message: "Enter engineer name:",
@@ -177,17 +178,17 @@ const engineerPrompt = () => {
       message: "GitHub username:",
       name: "githubusername",
     },
-    {
-      type: "confirm",
-      message: "Add another team member?",
-      name: "newE",
-    },
+    // {
+    //   type: "confirm",
+    //   message: "Add another team member?",
+    //   name: "newE",
+    // },
   ]);
 };
 
 // INTERN PROMPT
 const internPrompt = () => {
-  inquirer.prompt([
+  return inquirer.prompt([
     {
       type: "input",
       message: "Enter intern name:",
@@ -206,13 +207,13 @@ const internPrompt = () => {
     {
       type: "input",
       message: "School:",
-      name: "email",
+      name: "school",
     },
-    {
-      type: "confirm",
-      message: "Add another team member?",
-      name: "newE",
-    },
+    // {
+    //   type: "confirm",
+    //   message: "Add another team member?",
+    //   name: "newE",
+    // },
   ]);
 };
 
