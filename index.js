@@ -1,4 +1,4 @@
-// Team Profile Generator
+// TEAM PROFILE GENERATOR
 
 // REQUIRE
 const inquirer = require("inquirer");
@@ -16,48 +16,50 @@ const createManager = require("./src/templates/engineer");
 const createEngineer = require("./src/templates/engineer");
 const createIntern = require("./src/templates/intern");
 
-// ROLES
-// const employeeRole = {
-//     Manager: '',
-//     Engineer: '',
-//     Intern: ''
-// };
-
-// STORE EMPLOYEES HERE FROM PROMP INPUT
+// STORE EMPLOYEES HERE FROM PROMPT INPUT
 const listOfEmployees = [];
 
-// START OF GENERATE TEAM MEMBERS FUNCTION
-// const createTeamMembers = (data) =>
-
-// first prompt asks for the team manager info
-// second prompt asks whether they want to add an engineer or intern
-// user selects engineer for example, else exit out and generate html page
-// third prompt asks for engineer info
-// fourth prompt asks whether they want to add an intern
-// user selects intern, else exit out and generate the html page
-// fifth prompt asks for intern info
-// generate html page
+// first prompt asks for the team member role.
+// user selects either manager, engineer, or intern.
+// I could also add an exit program option.
+// user inputs for the role, then are taken back to add team member prompt
+// user can continue to add team members
+// when user selects finnish the build team is called
+// finaly the generate html is called
 
 newEmployee();
 
 const newEmployee = () => {
   addTeamMemberPrompt().then(function (erole) {
     switch (erole.role) {
-      case "manager":
-        newManager;
+      case "Manager":
+        newManager();
         break;
-      case "engineer":
+      case "Engineer":
         newEngineer;
         break;
-      case "intern":
+      case "Intern":
         newIntern;
         break;
-      case "finnish":
+      case "Finnish":
         buildTeam;
+      // could add a exit program here
       default:
         console.log("Sorry, no valid choice selected.");
     }
   });
+};
+
+// ADD ANOTHER TEAM MEMBER PROMPT
+const addTeamMemberPrompt = () => {
+  inquirer.prompt([
+    {
+      type: "list",
+      message: "Select team member role:",
+      name: "role",
+      choices: ["Manager", "Engineer", "Intern", "Finnish"],
+    },
+  ]);
 };
 
 // ADD MANAGER
@@ -103,7 +105,24 @@ const newIntern = () => {
 };
 
 // BUILD MY TEAM
-const buildTeam = () => {};
+const buildTeam = () => {
+  let eList = "";
+  listOfEmployees.forEach(function (edata) {
+    if (edata.office) {
+      eList += createManager(edata);
+    } else if (edata.githubusername) {
+      eList += createEngineer(edata);
+    } else if (edata.school) {
+      eList += createIntern(edata);
+    } else {
+      console.log("There was an error building your team!");
+    }
+  });
+  let indexHTML = createMain(eList);
+  fs.writeFile("index.html", indexHTML, (err) =>
+    err ? console.error(err) : console.log("Successfully generated HTML file!")
+  );
+};
 
 // MANAGER PROMPT
 const managerPrompt = () => {
@@ -128,11 +147,6 @@ const managerPrompt = () => {
       type: "input",
       message: "Office number:",
       name: "office",
-    },
-    {
-      type: "confirm",
-      message: "Confirm Manager role:",
-      name: "manager",
     },
     {
       type: "confirm",
@@ -167,11 +181,6 @@ const engineerPrompt = () => {
     },
     {
       type: "confirm",
-      message: "Confirm Engineer role:",
-      name: "engineer",
-    },
-    {
-      type: "confirm",
       message: "Add another team member?",
       name: "newE",
     },
@@ -203,51 +212,8 @@ const internPrompt = () => {
     },
     {
       type: "confirm",
-      message: "Confirm Intern role:",
-      name: "intern",
-    },
-    {
-      type: "confirm",
       message: "Add another team member?",
       name: "newE",
     },
   ]);
 };
-
-// ADD ANOTHER USER PROMPTS
-const addTeamMemberPrompt = () => {
-  inquirer.prompt([
-    {
-      type: "list",
-      message: "Select team member role:",
-      name: "role",
-      choices: ["manager", "engineer", "intern"],
-    },
-  ]);
-};
-
-// one for selecting either engineer or intern
-// one for selecting engineer
-// one for selecting intern
-
-//   .then((data) => {
-//     console.log(data);
-//     const employeeData = createTeamMembers(data);
-
-// Write file
-//     fs.writeFile("index.html", employeeData, (err) =>
-//             err ? console.error(err) : console.log("Successfully created team member!")
-//     );
-//   });
-
-//   {
-//     type: 'list',
-//     message: 'Add team member:',
-//     name: 'teammember',
-//     choices: [
-//         'Manager',
-//         'Engineer',
-//         'Intern',
-//         'Finished'
-//     ],
-//     },
