@@ -27,8 +27,6 @@ const listOfEmployees = [];
 // when user selects finnish the build team is called
 // finaly the generate html is called
 
-newEmployee();
-
 const newEmployee = () => {
   addTeamMemberPrompt().then(function (erole) {
     switch (erole.role) {
@@ -217,3 +215,5 @@ const internPrompt = () => {
     },
   ]);
 };
+
+newEmployee();
