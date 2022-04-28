@@ -41,6 +41,7 @@ const newEmployee = () => {
         break;
       case "Finnish":
         buildTeam();
+        break;
       // could add a exit program here
       default:
         console.log("Sorry, no valid choice selected.");
@@ -67,7 +68,7 @@ const newManager = () => {
       emdata.name,
       emdata.id,
       emdata.email,
-      emdata.office
+      emdata.officeNumber
     );
     listOfEmployees.push(eManager);
     newEmployee();
@@ -81,7 +82,7 @@ const newEngineer = () => {
       eedata.name,
       eedata.id,
       eedata.email,
-      eedata.githubusername
+      eedata.github
     );
     listOfEmployees.push(eEngineer);
     newEmployee();
@@ -128,9 +129,9 @@ const buildTeam = () => {
   let eList = "";
   listOfEmployees.forEach(function (edata) {
     console.log(edata);
-    if (edata.office) {
+    if (edata.officeNumber) {
       eList += createManager(edata);
-    } else if (edata.githubusername) {
+    } else if (edata.github) {
       eList += createEngineer(edata);
     } else if (edata.school) {
       eList += createIntern(edata);
@@ -166,7 +167,7 @@ const managerPrompt = () => {
     {
       type: "input",
       message: "Office number:",
-      name: "office",
+      name: "officeNumber",
     },
     // {
     //   type: "confirm",
@@ -197,7 +198,7 @@ const engineerPrompt = () => {
     {
       type: "input",
       message: "GitHub username:",
-      name: "githubusername",
+      name: "github",
     },
     // {
     //   type: "confirm",
