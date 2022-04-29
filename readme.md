@@ -61,4 +61,6 @@ This application includes the following test files. To run these tests install t
 
 ## Link to video demonstration
 
-Video demo: [GDrive Link](https://linkhere)
+Video demonstrating tests: [GDrive Link](https://drive.google.com/file/d/1pGypd0Z2MNNIBmbWYA_RZcvfAVfj6aRA/view?usp=sharing)
+
+Video demonstrating application: [GDrive Link](https://drive.google.com/file/d/1GZF8LjkH1-Ft5YkvQp1ny3VkoLAbU-1U/view?usp=sharing)
