@@ -103,27 +103,6 @@ const newIntern = () => {
   });
 };
 
-// BUILD MY TEAM
-// const buildTeam = () => {
-//   let eList = "";
-//   listOfEmployees.forEach(function (edata) {
-//     console.log(edata);
-//     if (edata.office) {
-//       eList += createManager(edata);
-//     } else if (edata.githubusername) {
-//       eList += createEngineer(edata);
-//     } else if (edata.school) {
-//       eList += createIntern(edata);
-//     } else {
-//       console.log("There was an error building your team!");
-//     }
-//   });
-//   let indexHTML = createMain(eList);
-//   fs.writeFile("index.html", indexHTML, (err) =>
-//     err ? console.error(err) : console.log("Successfully generated HTML file!")
-//   );
-// };
-
 // BUILD MY TEAM ORIGINAL
 const buildTeam = () => {
   let eList = "";
@@ -169,11 +148,6 @@ const managerPrompt = () => {
       message: "Office number:",
       name: "officeNumber",
     },
-    // {
-    //   type: "confirm",
-    //   message: "Add another team member?",
-    //   name: "newE",
-    // },
   ]);
 };
 
@@ -200,11 +174,6 @@ const engineerPrompt = () => {
       message: "GitHub username:",
       name: "github",
     },
-    // {
-    //   type: "confirm",
-    //   message: "Add another team member?",
-    //   name: "newE",
-    // },
   ]);
 };
 
@@ -231,11 +200,6 @@ const internPrompt = () => {
       message: "School:",
       name: "school",
     },
-    // {
-    //   type: "confirm",
-    //   message: "Add another team member?",
-    //   name: "newE",
-    // },
   ]);
 };
 

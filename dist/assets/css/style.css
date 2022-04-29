@@ -8,8 +8,6 @@
     text-decoration: none;
 }
 
-
-
 /* COLORS */
 :root {
     --sizzle-red: #E84756; /* header background color */
@@ -18,7 +16,6 @@
     --cultured: #F6F7F9; /* card body background color */
     --black: #333; /* text color */
     --white: #fff; /* text color */
-
 }
 
 /* SELECTORS */
@@ -35,16 +32,17 @@ margin-bottom: 10px;
 
 main {
     display: flex;
-    /* justify-content: center; */
-    justify-content: space-around;
+    justify-content: center;
     flex-wrap: wrap;
 }
 
 .card {
     border: solid 1px var(--gainsboro);
+    background-color: var(--cultured);
     border-radius: 6px;
     box-shadow: 4px 4px 5px var(--black);
     margin: 10px;
+    width: 255px;
 }
 
 .card-header {
@@ -52,22 +50,19 @@ main {
     color: var(--white);
     padding-top: 15px;
     padding-left: 20px;
+    padding-bottom: 12px;
     border-top-left-radius: 6px;
-    border-top-right-radius: 6px;
-    
+    border-top-right-radius: 6px;  
 }
-
-/* .uk-icon[uk-icon="icon :user"] svg {
-    color: white;
-}
-
-.uk-icon[uk-icon="icon:user"] svg polygon{
-    fill: white;
-} */
 
 .employee-role-group {
     display: flex;
-    vertical-align: baseline;
+    align-items: center;
+}
+
+span {
+    display: flex;
+    align-items: center;
 }
 
 .employee-role {
@@ -80,11 +75,19 @@ main {
     padding-left: 20px;
     padding-right: 20px;
     background-color: var(--cultured);
-
 }
 
 .label {
     border: solid 1px var(--gainsboro);
+    background-color: var(--white);
     padding: 13px 18px 13px 18px;
-
+    overflow-wrap: break-word;
 }
+
+/* .uk-icon[uk-icon="icon :user"] svg {
+    color: white;
+}
+
+.uk-icon[uk-icon="icon:user"] svg polygon{
+    fill: white;
+} */
