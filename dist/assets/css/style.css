@@ -1,8 +1,6 @@
-/* Style Sheet */
 * {
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    /* font-size: 16px; */
     font-weight: 600;
     list-style-type: none;
     text-decoration: none;
@@ -10,12 +8,12 @@
 
 /* COLORS */
 :root {
-    --sizzle-red: #E84756; /* header background color */
-    --blue-crayola: #0077F7; /* card title background color & link color */
-    --gainsboro: #E1E1E1; /* border stroke color */
-    --cultured: #F6F7F9; /* card body background color */
-    --black: #333; /* text color */
-    --white: #fff; /* text color */
+    --sizzle-red: #E84756;      /* header background color */
+    --blue-crayola: #0077F7;    /* card title background color & link color */
+    --gainsboro: #E1E1E1;       /* border stroke color */
+    --cultured: #F6F7F9;        /* card body background color */
+    --black: #333;              /* text color */
+    --white: #fff;              /* text color */
 }
 
 /* SELECTORS */
@@ -83,11 +81,3 @@ span {
     padding: 13px 18px 13px 18px;
     overflow-wrap: break-word;
 }
-
-/* .uk-icon[uk-icon="icon :user"] svg {
-    color: white;
-}
-
-.uk-icon[uk-icon="icon:user"] svg polygon{
-    fill: white;
-} */

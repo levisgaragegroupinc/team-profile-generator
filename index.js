@@ -5,7 +5,6 @@ const inquirer = require("inquirer");
 const fs = require("fs");
 
 // CLASS FILES
-const Employee = require("./lib/classes/employee");
 const Manager = require("./lib/classes/manager");
 const Engineer = require("./lib/classes/engineer");
 const Intern = require("./lib/classes/intern");
@@ -18,14 +17,6 @@ const createIntern = require("./src/templates/intern");
 
 // STORE EMPLOYEES HERE FROM PROMPT INPUT
 const listOfEmployees = [];
-
-// first prompt asks for the team member role.
-// user selects either manager, engineer, or intern.
-// I could also add an exit program option.
-// user inputs for the role, then are taken back to add team member prompt
-// user can continue to add team members
-// when user selects finnish the build team is called
-// finaly the generate html is called
 
 const newEmployee = () => {
   addTeamMemberPrompt().then(function (erole) {

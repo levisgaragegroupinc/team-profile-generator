@@ -13,10 +13,11 @@ describe("NewManager", () => {
       expect(managerObj.email).toEqual("dave@skiforce.com");
       expect(managerObj.officeNumber).toEqual(710);
     });
-    // it('', () => {
-    //   // Arrange
-    //   // Act
-    //   // Assert
-    // });
+  });
+  describe("methods", () => {
+    it("should return employee role with getRole()", () => {
+      const managerObj = new NewManager("Dave", 1214, "dave@skiforce.com", 710);
+      expect(managerObj.getRole()).toEqual("Manager");
+    });
   });
 });
